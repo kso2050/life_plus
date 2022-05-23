@@ -146,6 +146,157 @@
 
 
 
+#### 테이블 생성 스크립트
+
+CREATE TABLE 회원 (
+	회원이름  VARCHAR(10)	NOT NULL,
+성별     VARCHAR(10),
+연락처	VARCHAR(20),
+회원ID	VARCHAR(20)	NOT NULL,
+PW	VARCHAR(20),
+생년월일 VARCHAR(20),
+	나이	    INT,
+	PRIMARY KEY(회원ID)
+);
+
+CREATE TABLE 크리에이터 (
+	크리에이터이름  VARCHAR(10)   NOT NULL,
+성별     VARCHAR(10),
+연락처	VARCHAR(20),
+크리에이터ID	VARCHAR(20)	NOT NULL,
+PW	VARCHAR(20),
+생년월일 VARCHAR(20),
+	나이	    INT,
+	PRIMARY KEY(크리에이터ID)
+);
+
+CREATE TABLE 구독자 (
+	구독자이름     VARCHAR(10)	NOT NULL,
+성별     VARCHAR(10),
+연락처	VARCHAR(20),
+구독자ID	VARCHAR(20)	NOT NULL,
+PW	VARCHAR(20),
+생년월일 VARCHAR(20),
+	나이	    INT,
+	PRIMARY KEY(구독자ID)
+);
+
+CREATE TABLE 관리자 (
+	관리자이름     VARCHAR(10)	NOT NULL,
+성별     VARCHAR(10),
+연락처	VARCHAR(20),
+관리자ID	VARCHAR(20)	NOT NULL,
+PW	VARCHAR(20),
+생년월일 VARCHAR(20),
+	나이	    INT,
+	PRIMARY KEY(관리자ID)
+);
+
+CREATE TABLE 음악 (
+	음악번호	VARCHAR(10)	NOT NULL,
+노래제목	VARCHAR(10)	NOT NULL,
+아티스트	VARCHAR(20)	NOT NULL,
+앨범	VARCHAR(20),
+발매일	VARCHAR(20),
+장르	VARCHAR(20),
+작곡	VARCHAR(20),
+작사	VARCHAR(20),
+편곡	VARCHAR(20),
+가격	INT,
+할인율	INT,
+판매가	INT,
+	PRIMARY KEY(음악번호)
+);
+
+CREATE TABLE 책 (
+	책번호		VARCHAR(10)	NOT NULL,
+책제목		VARCHAR(20)	NOT NULL,
+분류		VARCHAR(20),
+저자		VARCHAR(20),
+출판		VARCHAR(20),
+출간		VARCHAR(20),
+평점		INT,
+가격		INT,
+할인율		INT,
+판매가		INT,
+	PRIMARY KEY(책번호)
+);
+
+CREATE TABLE 크리에이터 문의사항 (
+	크리에이터 문의글번호	VARCHAR(10)	NOT NULL,
+문의글제목	VARCHAR(20)	NOT NULL,
+문의내용		VARCHAR(50),
+문의유형		VARCHAR(20),
+연관된 문의사항	VARCHAR(50),
+크리에이터ID	VARCHAR(20)	NOT NULL,
+	PRIMARY KEY(크리에이터 문의글번호)
+);
+
+CREATE TABLE 구독자 문의사항 (
+	구독자 문의글번호	VARCHAR(10)	NOT NULL,
+문의글제목	VARCHAR(20)	NOT NULL,
+문의내용		VARCHAR(50),
+문의유형		VARCHAR(20),
+연관된 문의사항	VARCHAR(50),
+구독자ID		VARCHAR(20)	NOT NULL,
+	PRIMARY KEY(구독자 문의글번호)
+);
+
+CREATE TABLE 공지사항 (
+	공지글번호	VARCHAR(10)	NOT NULL,
+공지글제목	VARCHAR(20)	NOT NULL,
+공지내용		VARCHAR(50),
+공지유형		VARCHAR(20),
+연관된 공지사항	VARCHAR(50),
+관리자ID		VARCHAR(20)	NOT NULL,
+	PRIMARY KEY(공지글번호)
+);
+
+CREATE TABLE 플레이리스트 (
+	플레이리스트번호	VARCHAR(10)	NOT NULL,
+플레이리스트제목	VARCHAR(20)	NOT NULL,
+설명		VARCHAR(50),
+총 곡 수		VARCHAR(20),
+총 플레이 시간	VARCHAR(20),
+태그		VARCHAR(20),
+연관 플레이리스트	VARCHAR(50),
+구독자ID		VARCHAR(20)	NOT NULL,
+	PRIMARY KEY(플레이리스트번호)
+);
+
+CREATE TABLE 음악추천 (
+	크리에이터ID	VARCHAR(20)	NOT NULL,
+음악번호		VARCHAR(20)	NOT NULL,
+추천이유		VARCHAR(50),
+추천점수		INT,
+추천날짜		VARCHAR(20),
+	PRIMARY KEY(크리에이터ID, 음악번호)
+);
+
+CREATE TABLE 책추천 (
+	크리에이터ID	VARCHAR(20)	NOT NULL,
+책번호		VARCHAR(20)	NOT NULL,
+추천이유		VARCHAR(50),
+추천점수		INT,
+추천날짜		VARCHAR(20),
+	PRIMARY KEY(크리에이터ID, 책번호)
+);
+
+CREATE TABLE 구독(
+	구독자ID		VARCHAR(20)	NOT NULL,
+크리에이터ID	VARCHAR(20)	NOT NULL,
+구독일자		VARCHAR(20),
+	PRIMARY KEY(구독자ID, 크리에이터ID)
+);
+
+CREATE TABLE 구매(
+	구독자ID		VARCHAR(20)	NOT NULL,
+책번호		VARCHAR(20)	NOT NULL,
+구매일자		VARCHAR(20),
+결제방식		VARCHAR(20),
+구매처		VARCHAR(20),
+	PRIMARY KEY(구독자ID, 책번호)
+);
 
   
 
